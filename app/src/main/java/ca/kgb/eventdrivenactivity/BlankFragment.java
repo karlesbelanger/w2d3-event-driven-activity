@@ -10,13 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import org.greenrobot.eventbus.EventBus;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class BlankFragment extends Fragment {
 
-    private static final String TAG = "Log Button : ";
+    private static final String TAG = "LogButton_ ";
     private Button logBtn;
     public BlankFragment() {
         // Required empty public constructor
@@ -39,6 +41,7 @@ public class BlankFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: " + logBtn.getText());
+                EventBus.getDefault().post(new MagicEvent());
             }
         });
     }
