@@ -21,4 +21,10 @@ public class MainActivity extends AppCompatActivity {
     public void doEventMagic(MagicEvent magicEvent){
         Log.d(TAG, "doEventMagic: ");
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 }
